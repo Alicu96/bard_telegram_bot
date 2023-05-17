@@ -1,5 +1,5 @@
 # bard_telegram_bot
-google bart telegram bot
+google bart telegram bot, can have conversation in any language
 
 ## how to run the bot
 ```bash
