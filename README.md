@@ -13,6 +13,7 @@ To get the TELEGRAM_BOT_TOKEN:
 1. Search for @botfather in Telegram
 2. Start a conversation with BotFather by clicking on the Start button
 3. Type /newbot, and follow the prompts to set up a new bot. The BotFather will give you a token that you will use to authenticate your bot and grant it access to the Telegram API
+
 To get the _BARD_API_KEY: 
 1. Visit https://bard.google.com/
 2. F12 for console
