@@ -37,10 +37,14 @@ def reply(message):
     user_lang = translator_result.src
     bot.send_message(message.chat.id, f'you are texting in {user_lang.upper()}')
     # get response from bard
-    response = bard.get_answer(query_en)['content']
-    # translate back to user's language
-    response_user_lang = translator.translate(response, src="en", dest=user_lang).text
-    bot.send_message(message.chat.id, response_user_lang)
+    if user_lang == 'en':
+    	response = bard.get_answer(query)['content']
+    	bot.send_message(message.chat.id, response)
+    else:
+    	response = bard.get_answer(query_en)['content']
+    	# translate back to user's language
+    	response_user_lang = translator.translate(response, src="en", dest=user_lang).text
+    	bot.send_message(message.chat.id, response_user_lang)
 
 
 bot.polling()
