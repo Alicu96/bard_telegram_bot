@@ -15,6 +15,11 @@ bard = Bard(timeout=10) # Set timeout in seconds
 def start(message):
     bot.send_message(message.chat.id, "Hello! I am a bot that replies to your chat.")
 
+@bot.message_handler(commands=["help"])
+def help(message):
+    bot.send_message(message.chat.id, "Here is a list of available commands:")
+    bot.send_message(message.chat.id, "/start\n/heartbeat")
+
 
 @bot.message_handler(commands=["heartbeat"])
 def heartbeat(message):
