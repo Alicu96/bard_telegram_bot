@@ -10,6 +10,7 @@ nano .env
 # copy these lines to .env file
 TELEGRAM_BOT_TOKEN=<your telegram bot token>
 _BARD_API_KEY=<value of __Secure-1PSID cookie>
+sh ./scripts/run_app.py
 ```
 To get the TELEGRAM_BOT_TOKEN: TODO
 To get the _BARD_API_KEY: 
@@ -18,7 +19,12 @@ To get the _BARD_API_KEY:
 3. Session: Application → Cookies → Copy the value of  `__Secure-1PSID` cookie.
 For more detail, visit: https://github.com/dsdanielpark/Bard-API
 - Using Docker
-TODO
+```bash
+# build docker image
+docker build -t bard_bot . -f Dockerfile
+# run
+docker compose up -d
+```
 
 ## License
 [MIT](https://opensource.org/license/mit/) 
