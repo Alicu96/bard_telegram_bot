@@ -3,6 +3,7 @@ import dotenv
 import os
 from bardapi import Bard
 from googletrans import Translator
+from get_system_stats import get_system_stats
 translator = Translator()
 
 dotenv.load_dotenv()
@@ -20,12 +21,18 @@ def start(message):
 @bot.message_handler(commands=["help"])
 def help(message):
     bot.send_message(message.chat.id, "Here is a list of available commands:")
-    bot.send_message(message.chat.id, "/start\n/heartbeat")
+    bot.send_message(message.chat.id, "/start \n/heartbeat \n/stats")
 
 
 @bot.message_handler(commands=["heartbeat"])
 def heartbeat(message):
     bot.send_message(message.chat.id, "I am still alive!")
+
+
+@bot.message_handler(commands=["stats"])
+def get_stats(message):
+    cpu_usage, mem_usage = get_system_stats()
+    bot.send_message(message.chat.id, f"cpu_usage: {cpu_usage}% \nmemory_usage: {mem_usage}%")
 
 
 @bot.message_handler(content_types=["text"])
