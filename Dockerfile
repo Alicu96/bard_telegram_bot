@@ -10,7 +10,7 @@ RUN apt update && apt install -y \
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
-LABEL app="bard_telegram_bot"
+LABEL app="telebard"
 LABEL maintainer="Alicu96"
 
 WORKDIR /opt
