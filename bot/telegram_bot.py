@@ -31,8 +31,8 @@ def heartbeat(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    cpu_usage, mem_usage = get_system_stats()
-    bot.send_message(message.chat.id, f"cpu_usage: {cpu_usage}% \nmemory_usage: {mem_usage}%")
+    cpu_usage, mem_usage, cpu_temperature = get_system_stats()
+    bot.send_message(message.chat.id, f"cpu_usage: {cpu_usage}% \nmemory_usage: {mem_usage}% \ncpu_temperature: {cpu_temperature} *C")
 
 
 @bot.message_handler(content_types=["text"])
