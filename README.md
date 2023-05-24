@@ -28,8 +28,8 @@ sh ./scripts/run_app.py
 
 - Using Docker
 ```bash
-# build docker image
-docker build -t bard_bot . -f Dockerfile
+# build 
+docker compose build telebard
 # run
 docker compose up -d
 ```
