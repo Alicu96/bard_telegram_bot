@@ -4,6 +4,7 @@ import os
 from bardapi import Bard
 from googletrans import Translator
 from get_system_stats import get_system_stats
+from get_image import get_image
 translator = Translator()
 
 dotenv.load_dotenv()
@@ -21,7 +22,7 @@ def start(message):
 @bot.message_handler(commands=["help"])
 def help(message):
     bot.send_message(message.chat.id, "Here is a list of available commands:")
-    bot.send_message(message.chat.id, "/start \n/heartbeat \n/stats")
+    bot.send_message(message.chat.id, "/start \n/heartbeat \n/stats \n/image <keyword>")
 
 
 @bot.message_handler(commands=["heartbeat"])
@@ -31,9 +32,21 @@ def heartbeat(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    cpu_usage, mem_usage, cpu_temperature, speed_download = get_system_stats()
+    ipv4_addr, cpu_usage, mem_usage, cpu_temperature, speed_download = get_system_stats()
+    bot.send_message(message.chat.id, f"ipv4_addr: {ipv4_addr}")
     bot.send_message(message.chat.id, f"cpu_usage: {cpu_usage}% \nmemory_usage: {mem_usage}% \ncpu_temperature: {cpu_temperature} *C")
     bot.send_message(message.chat.id, "speed_download: {:.2f}Mbps".format(speed_download))
+
+
+@bot.message_handler(commands=["image"])
+def show_image(message):
+    keyword = message.text.replace("/image ", "")
+    bot.send_message(message.chat.id, f"Showing image of '{keyword}':")
+    file_image = "/opt/temp/000001.jpg"
+    get_image(keyword)
+    photo = open(file_image, 'rb')
+    bot.send_photo(message.chat.id, photo)
+    os.remove(file_image)
 
 
 @bot.message_handler(content_types=["text"])
