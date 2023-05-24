@@ -1,5 +1,11 @@
 # bard_telegram_bot
-google bart telegram bot, can have conversation in any language
+A fast and feature-rich Google Bart Telegram bot, can have conversation in any language
+## Main Features:
+- ❤️‍🔥 Low latency replies telegram bot with Google Bart power
+- 🤝 Support many languages
+- 📸  Simplified text-to-image
+- 🤑 Totally free
+- 🐍 easy-to-modify Python code
 
 ## how to run the bot
 ```bash
